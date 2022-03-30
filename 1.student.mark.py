@@ -1,79 +1,69 @@
-
-
-
 def inputStudentCount():
-    return int(input("Please enter number of students:"))
-    
+    studentcount = int(input("Please Enter Number Of Students: "))
+    return studentcount
 
-def inputStudentInfo():
-    students = []
-    for s in range(studentCount):
-        print(f"Please enter {s + 1} students info:")
-        id = input("- ID: ")
-        name = input("- Name: ")
-        birthday = input("- DOB: ")
-        students.append ({
-            "Name": name,
-            "ID": id,
-            "DOB": birthday,
-        })
-    print(f"Finished Entered {studentCount} students")
+def inputStudentInfo(studentCount):
+    students = {}
+    for i in range(0, studentCount):
+        id = input("Please Enter Student ID: ")
+        name = input("Please Enter Student Name: ")
+        dob = input("Please Enter Student DOB: ")
+        students[id] = {
+            "name": name,
+            "dob": dob,
+            "marks": {}
+        }
     return students
-    
 
 def inputCourseCount():
-    return int(input("Please enter number of courses:"))
-    
+    coursecount = int(input("Please Enter Number Of Courses: "))
+    return coursecount
 
-def inputCourseInfo():
-    courses = []
-    for c in range(studentCount):
-        print(f"Please enter course {c + 1} info:")
-        name = input("- Name: ")
-        id = input("- ID: ")
-        courses.append({
-            "Name": name,
-            "ID": id,
-        })
-    print(f"Finished Entered {courseCount} courses")
+def inputCourseInfo(courseCount):
+    courses = {}
+    for i in range(0, courseCount):
+        name = input("Please Enter Course Name: ")
+        id = input("Please Enter Course ID: ")
+        courses[id] = name
     return courses
 
+def selectCourse(courses):
+    listCourses(courses)
+    course_id = input("Please Enter Course ID From Course List: ")
+    return course_id
 
-def inputStudentMarkForCourses():
-    marks = []
-    for m in range(studentCount):
-        print(f"Please enter mark for {m + 1} course:")
-        mark = input("- Mark: ")
-        marks.append({
-            "Mark": mark,
-        })
-    print(f"Finished Entered {marks} marks")
-    return marks
-
-def listStudents(students):
-    print(f"Listing {len(students)} students")
-    for student in students:
-        print(f"- ID: {student['ID']}, Name: {student['Name']}, DOB: {student['DOB']}")
-    pass
+def inputMark(course_id, students):
+    print("Please Enter Marks Of The Course {course_id} For Students: ")
+    for id in students:
+        mark = float(input(f"- Students {students[id]['name']}:"))
+        students[id]["marks"][course_id] = mark
 
 def listCourses(courses):
-    print(f"Listing {len(courses)} courses")
-    for course in courses:
-        print(f"- ID: {course['ID']}, Name: {course['Name']}")
+    print("\nAll Courses List")
+    for id in courses:
+        print(f"{id: <10} {courses[id]: <20}")
 
-def showMarks(marks):
-    print(f"Listing {len(marks)} marks")
-    for mark in marks:
-        print(f"- Mark: {marks[mark]}")
-    pass
+def listStudents(students):
+    print("\n All Students List")
+    for id in students:
+        print(f"{id: <10} {students[id]['name']: <20} {students[id]['dob']: <15}")
+
+def showMark(course_id, students):
+    print("\nAll Marks For The Course {course_id}")
+    for id in students:
+        print(f"{students[id]['name'] <20} {students[id]['marks']['course_id']}")
+
 
 studentCount = inputStudentCount()
-students = inputStudentInfo()
+students = inputStudentInfo(studentCount)    
 listStudents(students)
 
 courseCount = inputCourseCount()
-courses = inputCourseInfo()
+courses = inputCourseInfo(courseCount)
 listCourses(courses)
 
-StudentMarkForCourses = inputStudentMarkForCourses()
-showMarks(marks)
+course_id = selectCourse(courses)
+inputMark(course_id, students)
+
+course_id = selectCourse(courses)
+showMark(course_id, students)
