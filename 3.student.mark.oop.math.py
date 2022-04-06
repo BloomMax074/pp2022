@@ -94,7 +94,7 @@ def inputMARK():
             CourseID = input("Please Enter a Course ID: ")
             CourseList = [course_id.get_courseid() for course_id in COURSES]
             if CourseID in CourseList:
-                for j in STUDENTS:
+                for s in STUDENTS:
                     while 1:
                         StudentID = input("Please Enter a Student ID: ")
                         StudentList = [student_id.get_studentid() for student_id in STUDENTS]
@@ -115,12 +115,12 @@ def student_gpa():
     for i in STUDENTS:
         total_marks = 0
         total_credits = 0
-        for j in marks:
-            if j.get_student_id() == i.get_studentid():
-                total_marks = total_marks + j.get_mark()
-                for k in credits:
-                    if j.get_course_id() == k.get_courseid():
-                        total_credits = total_credits + k.get_credit()
+        for m in marks:
+            if m.get_student_id() == i.get_studentid():
+                total_marks = total_marks + m.get_mark()
+                for c in credits:
+                    if m.get_course_id() == c.get_courseid():
+                        total_credits = total_credits + c.get_credit()
         id = i.get_course_id()
         gpa_calculate = total_marks/total_credits
         student_gpa = Gpa(id, gpa_calculate)
