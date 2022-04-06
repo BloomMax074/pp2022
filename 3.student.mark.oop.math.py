@@ -1,10 +1,6 @@
 import numpy as np
 
 STUDENTS = []
-COURSES = []
-MARKS = []
-GPA = []
-
 class Student:
     def __init__(self, id, name, dob):
         self.__id = id
@@ -18,8 +14,9 @@ class Student:
     def get_studentdob(self):
         return self.__dob
     def __str__(self):
-        return f"Student - ID: {self.__id}\n Name: {self.__name}\n DOB:{self.__dob}"
+        return f"Student - ID: {self.__id}\n - Name: {self.__name}\n - DOB:{self.__dob}"
 
+COURSES = []
 class Course:
     def __init__(self, id, name, credit):
         self.__id = id
@@ -33,8 +30,9 @@ class Course:
     def get_credit(self):
         return self.__credit    
     def __str__(self):
-        return f"Course - ID: {self.__id}\n Name: {self.__name}\n Credit: {self.__credit}"
+        return f"Course - ID: {self.__id}\n - Name: {self.__name}\n - Credit: {self.__credit}"
 
+MARKS = []
 class Mark:
     def __init__(self,student_id, course_id, mark):
         self.__student_id = student_id
@@ -48,6 +46,7 @@ class Mark:
     def get_mark(self):
         return self.__mark
 
+GPA = []
 class Gpa:
     def __init__(self, student_id, gpa):
         self.__student_id = student_id
@@ -58,11 +57,11 @@ class Gpa:
     def get_gpa(self):
         return self.gpa
     def __str__(self):
-        return f"Student ID: {self.__student_id} | GPA: {self.gpa}"
+        return f"Student - ID: {self.__student_id} | GPA: {self.gpa}"
 
 
 def inputStudentCount():
-    print("--------------------")
+    print("================================================")
     studentcount = int(input("Please Enter Number Of Students: "))
     return studentcount
 
@@ -75,7 +74,7 @@ def inputStudentInfo():
     STUDENTS.append(studentinfo)
 
 def inputCourseCount():
-    print("--------------------")
+    print("================================================")
     coursecount = int(input("Please Enter Number of Courses: "))
     return coursecount
 
@@ -88,7 +87,7 @@ def inputCourseInfo():
     COURSES.append(courseinfo)
 
 def inputMARK():
-    print("--------------------")
+    print("================================================")
     print("Mark Input System")
     for i in COURSES:
         while 1:
@@ -105,10 +104,10 @@ def inputMARK():
                             MARKS.append(M)
                             break
                         else:
-                            print("Invalid Value")
+                            print("Invalid Input")
                 break
             else:
-                print("Invalid Value")
+                print("Invalid Input")   
 
 def student_gpa():
     marks = np.array(MARKS)
@@ -150,7 +149,13 @@ def ShowGPA():
     for i in GPA:
         print(i)
 
-print("Student Mark Management System\n")
+print(""" 
+  ------------------------------------------------------
+ |======================================================| 
+ |========    Student Mark Management System	========|
+ |======================================================|
+  ------------------------------------------------------
+  """)
 
 studentcount = int(inputStudentCount())
 for i in range(0,studentcount):
@@ -161,7 +166,7 @@ for i in range(0,coursecount):
 inputMARK()
 
 while 1:
-    print("----------------------")
+    print("================================================================")
     print("1.Show Students List")
     print("2.Show Courses List")
     print("3.Show Mark List")
