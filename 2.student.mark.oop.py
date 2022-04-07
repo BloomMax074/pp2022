@@ -7,9 +7,6 @@ print("""
   """)
 
 STUDENTS = []
-COURSES = []
-MARKS = []
-
 class Student:
     def __init__(self, id, name, dob):
         self._id = id
@@ -34,6 +31,7 @@ class Student:
     def __str__(self):
         return f"Students:\n - ID: {self._id}\n - Name: {self._name}\n - DOB:{self._dob}"
 
+COURSES = []
 class Course:
     def __init__(self, id, name):
         self._id = id
@@ -52,6 +50,7 @@ class Course:
     def __str__(self):
         return f"Courses:\n - ID: {self._id}\n - Name: {self._name}"
 
+MARKS = []
 class Mark:
     def __init__(self,student_id, mark):
         self._student_id = student_id
@@ -143,7 +142,7 @@ for i in range(0,coursecount):
 ChooseCourse()
 inputMark()
 
-while 1:
+while True:
     print("================================================================")
     print("=======================   System Menu   ========================")
     print("1.Show Students List")
