@@ -1,3 +1,6 @@
+from typing import List
+
+
 print(""" 
   ------------------------------------------------------
  |======================================================| 
@@ -143,12 +146,14 @@ ChooseCourse()
 inputMark()
 
 while True:
-    print("================================================================")
-    print("=======================   System Menu   ========================")
-    print("1.Show Students List")
-    print("2.Show Courses List")
-    print("3.Show Mark List")
-    print("4.End The System")
+    print(f'''
+    ================================================================
+    =======================   System Menu   ========================
+    1. View Students List
+    2. View Courses List
+    3. View Marks List
+    4. Exit 
+''')
     choice = int(input("Please Enter Your Choice: "))
     if choice == 1:
         ListStudents()
