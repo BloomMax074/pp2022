@@ -97,11 +97,11 @@ def inputStudentCount():
 
 def inputStudentInfo():
     print("Student Information")
-    id = input("Please Enter Student ID: ")
-    name = input("Please Enter Student Name: ")
-    dob = input("Please Enter Student DOB: ")
-    studentinfo = Student(id,name,dob)
-    STUDENTS.append(studentinfo)
+    student_id = input("Please Enter Student ID: ")
+    student_name = input("Please Enter Student Name: ")
+    student_dob = input("Please Enter Student DOB: ")
+    student_info = Student(student_id,student_name,student_dob)
+    STUDENTS.append(student_info)
 
 def inputCourseCount():
     print("================================================")
@@ -110,11 +110,11 @@ def inputCourseCount():
 
 def inputCourseInfo():
     print("Course Information")
-    name = input("Please Enter Course Name: ")
-    id = input("Please Enter Course ID: ")
-    credits = input("Please Enter Course Credits: ")
-    courseinfo = Course(id,name,credits)
-    COURSES.append(courseinfo)
+    course_name = input("Please Enter Course Name: ")
+    course_id = input("Please Enter Course ID: ")
+    course_credits = input("Please Enter Course Credits: ")
+    course_info = Course(course_id,course_name,course_credits)
+    COURSES.append(course_info)
 
 def ChooseCourse():
     print("================================================")
@@ -144,7 +144,7 @@ def inputMark():
 def GPA_calculations_For_Students():
     All_Marks = [marks.get_mark() for marks in MARKS]
     All_Credits = [credits.get_coursecredits() for credits in COURSES]
-    gpa = np.add(All_Marks,All_Credits)
+    gpa = np.add(All_Marks, All_Credits)
     coursegpa = Gpa(gpa)
     GPA.append(coursegpa)
     for j in GPA:

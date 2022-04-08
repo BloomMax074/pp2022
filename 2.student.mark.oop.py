@@ -1,6 +1,5 @@
 from typing import List
 
-
 print(""" 
   ------------------------------------------------------
  |======================================================| 
@@ -76,11 +75,11 @@ def inputStudentCount():
 
 def inputStudentInfo():
     print("Student Information")
-    id = input("Please Enter Student ID: ")
-    name = input("Please Enter Student Name: ")
-    dob = input("Please Enter Student DOB: ")
-    studentinfo = Student(id,name,dob)
-    STUDENTS.append(studentinfo)
+    student_id = input("Please Enter Student ID: ")
+    student_name = input("Please Enter Student Name: ")
+    student_dob = input("Please Enter Student DOB: ")
+    student_info = Student(student_id,student_name,student_dob)
+    STUDENTS.append(student_info)
 
 def inputCourseCount():
     print("================================================")
@@ -89,10 +88,10 @@ def inputCourseCount():
 
 def inputCourseInfo():
     print("Course Information")
-    name = input("Please Enter Course Name: ")
-    id = input("Please Enter Course ID: ")
-    courseinfo = Course(id,name)
-    COURSES.append(courseinfo)
+    course_name = input("Please Enter Course Name: ")
+    course_id = input("Please Enter Course ID: ")
+    course_info = Course(course_id,course_name)
+    COURSES.append(course_info)
 
 def ChooseCourse():
     print("================================================")
